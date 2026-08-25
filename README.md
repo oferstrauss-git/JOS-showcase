@@ -58,6 +58,12 @@ flowchart TD
 
 **Reliability, not just happy-path:** a watchdog thread emails and desktop-notifies me if a run goes silent for 20+ minutes. Session-refresh scripts recover from LinkedIn/board bot-walls and expired logins without losing the run. Every job-board fetch runs through a tiered pipeline (pre-fetched JD, then an email snippet, then a live fetch) so a blocked site degrades gracefully instead of losing the job entirely.
 
+## What it looks like
+
+The Approval page, where qualified postings land for a final yes/no before anything gets drafted. This run is loaded with placeholder postings, and the company names and salary figures are blurred to match the redacted look I'd use with real data, so it's an honest look at the actual UI without exposing anything from an active job search.
+
+<img src="assets/approval-page.png" alt="JOS Approval page showing qualified job postings queued for review, with company names and salary ranges blurred" width="700">
+
 ## Design decisions (the interesting part)
 
 **Two-stage filtering, not one.** Stage 1 is cheap and mechanical: title keywords, location bounds, industry exclusions, and it discards the obvious no's before anything expensive happens. Stage 2 only runs on survivors, and does the actual judgment work: experience thresholds, skills overlap, and a **skill-position filter** that looks at *where* a skill appears in the requirements list and *how* it's phrased. "Tableau" as the first bullet under "Requirements" is a hard filter. "Familiarity with Tableau" in bullet six under "nice to have" isn't. A plain keyword match can't tell the difference; an agent reading the paragraph can.
