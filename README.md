@@ -73,8 +73,7 @@ flowchart TD
 - **Orchestration:** Node.js + Express backend, React frontend, a small local web app that triggers and monitors runs
 - **Reasoning engine:** Claude Code (Claude Sonnet), driven by versioned instruction files, not a single monolithic prompt. Discovery, qualification, and document generation are separate, independently-tuned rule sets
 - **Integrations, via MCP (Model Context Protocol):** Gmail, Google Sheets, Google Docs, a stealth Playwright browser for job-board fetching and LinkedIn contact search, Indeed's search API
-- **Reliability layer:** a stuck-run watchdog, session-expiry auto-recovery for LinkedIn/job-board logins, and a live usage tracker for the underlying Claude plan
-
+- **Reliability layer:** a stuck-run watchdog, and session-expiry auto-recovery for LinkedIn/job-board logins
 
 ## Code
 
